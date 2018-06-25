@@ -68,7 +68,7 @@
 
 <h2 id="indicate-submenus">Indicate submenus</h2>
 
-<p>Indicate menu items with submenus visually and using markup. Indicate menu items with submenus visually and using markup. In the following example, the submenu is indicated visually by an icon and this WAI-ARIA markup:</p>
+<p>Indicate menu items with submenus visually and using markup. In the following example, the submenu is indicated visually by an icon and this WAI-ARIA markup:</p>
 
 <ul>
   <li><code>aria-haspopup="true"</code> declares that a menu item has a submenu.</li>
@@ -77,7 +77,7 @@
 
 <figure class="code ">
   <figcaption>Code snippet: HTML</figcaption>
-<pre class="highlight html"><code><span class="nt">&lt;nav</span> <span class="na">aria-label=</span><span class="s">"Main Navigation"</span><span class="nt">&gt;</span>
+<div class="highlight"><pre class="highlight html"><code><span class="nt">&lt;nav</span> <span class="na">aria-label=</span><span class="s">"Main Navigation"</span><span class="nt">&gt;</span>
 		<span class="nt">&lt;ul&gt;</span>
 				<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"…"</span><span class="nt">&gt;</span>Home<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
 				<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"…"</span><span class="nt">&gt;</span>Shop<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
@@ -94,7 +94,7 @@
 				<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"…"</span><span class="nt">&gt;</span>Contact<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
 		<span class="nt">&lt;/ul&gt;</span>
 <span class="nt">&lt;/nav&gt;</span>
-</code></pre>
+</code></pre></div>
 </figure>
 <h2 id="fly-out-functionality">Fly-out functionality</h2>
 
@@ -106,9 +106,9 @@
 
 <figure class="code ">
   <figcaption>Code snippet: CSS</figcaption>
-<pre class="highlight css"><code><span class="nt">nav</span> <span class="o">&gt;</span> <span class="nt">ul</span> <span class="nt">li</span>       <span class="nt">ul</span> <span class="p">{</span> <span class="nl">display</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span> <span class="p">}</span>
+<div class="highlight"><pre class="highlight css"><code><span class="nt">nav</span> <span class="o">&gt;</span> <span class="nt">ul</span> <span class="nt">li</span>       <span class="nt">ul</span> <span class="p">{</span> <span class="nl">display</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span> <span class="p">}</span>
 <span class="nt">nav</span> <span class="o">&gt;</span> <span class="nt">ul</span> <span class="nt">li</span><span class="nd">:hover</span> <span class="nt">ul</span> <span class="p">{</span> <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;}</span>
-</code></pre>
+</code></pre></div>
 </figure>
 <p>In addition, scripting is used to slightly delay the immediate closing of submenu items when the mouse leaves the area. This delay makes it easier to use the menu when navigation by a mouse is not very precise.</p>
 
@@ -223,7 +223,7 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 
 <figure class="code ">
   <figcaption>Code snippet: JavaScript</figcaption>
-<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">menuItems</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">'li.has-submenu'</span><span class="p">);</span>
+<div class="highlight"><pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">menuItems</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">'li.has-submenu'</span><span class="p">);</span>
 <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">forEach</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">menuItems</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">i</span><span class="p">){</span>
 	<span class="nx">el</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"mouseover"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
 		<span class="k">this</span><span class="p">.</span><span class="nx">className</span> <span class="o">=</span> <span class="s2">"has-submenu open"</span><span class="p">;</span>
@@ -235,7 +235,7 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 		<span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
 	<span class="p">});</span>
 <span class="p">});</span>
-</code></pre>
+</code></pre></div>
 </figure>
 <h3 id="keyboard-users">Keyboard Users</h3>
 
@@ -432,7 +432,7 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 </div>
 <figure class="code ">
   <figcaption>Code snippet: JavaScript</figcaption>
-<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">menuItems</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">'li.has-submenu'</span><span class="p">);</span>
+<div class="highlight"><pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">menuItems</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">'li.has-submenu'</span><span class="p">);</span>
 <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">forEach</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">menuItems</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">i</span><span class="p">){</span>
 	<span class="nx">el</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'a'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"click"</span><span class="p">,</span>  <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
 		<span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">className</span> <span class="o">==</span> <span class="s2">"has-submenu"</span><span class="p">)</span> <span class="p">{</span>
@@ -446,7 +446,7 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 		<span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
 	<span class="p">});</span>
 <span class="p">});</span>
-</code></pre>
+</code></pre></div>
 </figure>
 <h4 class="ap" id="use-button-as-toggle">Use button as toggle</h4>
 
@@ -683,7 +683,7 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 </div>
 <figure class="code ">
   <figcaption>Code snippet: JavaScript</figcaption>
-<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">menuItems</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">'li.has-submenu'</span><span class="p">);</span>
+<div class="highlight"><pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">menuItems</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">'li.has-submenu'</span><span class="p">);</span>
 <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">forEach</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">menuItems</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">i</span><span class="p">){</span>
 	<span class="kd">var</span> <span class="nx">btn</span> <span class="o">=</span> <span class="s1">'&lt;button&gt;&lt;span&gt;&lt;span class="visuallyhidden"&gt;show submenu&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;'</span><span class="p">;</span>
 	<span class="kd">var</span> <span class="nx">topLevelLink</span> <span class="o">=</span> <span class="nx">el</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'a'</span><span class="p">);</span>
@@ -702,7 +702,7 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 		<span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
 	<span class="p">});</span>
 <span class="p">});</span>
-</code></pre>
+</code></pre></div>
 </figure>
 
 
@@ -1215,7 +1215,7 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 				
 	      	Updated
 	      
-	      06 September 2017
+	      25 June 2018
 	      
 		      
 		      (first published May 2015)
@@ -1248,7 +1248,7 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 		</p>
     <div class="copyright">
         <p>
-	        Copyright &#xA9; 2017 W3C <sup>&#xAE;</sup> (<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>, <a href="http://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="http://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>) <a href="/Consortium/Legal/ipr-notice">Usage policies apply</a>.
+	        Copyright &#xA9; 2018 W3C <sup>&#xAE;</sup> (<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>, <a href="http://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="http://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>) <a href="/Consortium/Legal/ipr-notice">Usage policies apply</a>.
         </p>
       </div><!-- ends copyright -->
     </div>

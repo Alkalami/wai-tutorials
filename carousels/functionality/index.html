@@ -72,7 +72,7 @@
       <div class="demo-main">
 <figure class="code ">
   <figcaption>Code snippet: JavaScript</figcaption>
-<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">ctrls</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'ul'</span><span class="p">);</span>
+<div class="highlight"><pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">ctrls</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'ul'</span><span class="p">);</span>
 
 <span class="nx">ctrls</span><span class="p">.</span><span class="nx">className</span> <span class="o">=</span> <span class="s1">'controls'</span><span class="p">;</span>
 <span class="nx">ctrls</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s1">'&lt;li&gt;'</span> <span class="o">+</span>
@@ -95,7 +95,7 @@
 <span class="p">});</span>
 
 <span class="nx">carousel</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">ctrls</span><span class="p">);</span>
-</code></pre>
+</code></pre></div>
 </figure>
 </div>
       <aside class="demo-side">
@@ -128,19 +128,19 @@
       </div>
 <figure class="code ">
   <figcaption>Code snippet: Add a live region to the carousel</figcaption>
-<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">liveregion</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'div'</span><span class="p">);</span>
+<div class="highlight"><pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">liveregion</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'div'</span><span class="p">);</span>
 <span class="nx">liveregion</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'aria-live'</span><span class="p">,</span> <span class="s1">'polite'</span><span class="p">);</span>
 <span class="nx">liveregion</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'aria-atomic'</span><span class="p">,</span> <span class="s1">'true'</span><span class="p">);</span>
 <span class="nx">liveregion</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'class'</span><span class="p">,</span> <span class="s1">'liveregion visuallyhidden'</span><span class="p">);</span>
 <span class="nx">carousel</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">liveregion</span><span class="p">);</span>
-</code></pre>
+</code></pre></div>
 </figure>
 <figure class="code ">
   <figcaption>Code snippet: Change text in the liveregion to have that text announced</figcaption>
-<pre class="highlight javascript"><code><span class="k">if</span> <span class="p">(</span><span class="nx">announceItem</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre class="highlight javascript"><code><span class="k">if</span> <span class="p">(</span><span class="nx">announceItem</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">carousel</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.liveregion'</span><span class="p">).</span><span class="nx">textContent</span> <span class="o">=</span> <span class="s1">'Item '</span> <span class="o">+</span> <span class="p">(</span><span class="nx">new_current</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">' of '</span> <span class="o">+</span> <span class="nx">slides</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
+</code></pre></div>
 </figure>
 <h2 class="newex" id="add-navigation-buttons">Add navigation buttons</h2>
 
@@ -164,7 +164,7 @@
       </div>
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><code><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"slidenav"</span><span class="nt">&gt;</span>
+<div class="highlight"><pre class="highlight html"><code><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"slidenav"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;li&gt;</span>
     <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"current"</span> <span class="na">data-slide=</span><span class="s">"0"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"visuallyhidden"</span><span class="nt">&gt;</span>News<span class="nt">&lt;/span&gt;</span> 1
@@ -182,7 +182,7 @@
     <span class="nt">&lt;/button&gt;</span>
   <span class="nt">&lt;/li&gt;</span>
 <span class="nt">&lt;/ul&gt;</span>
-</code></pre></figure>
+</code></pre></div></figure>
 
 <figure class="sample ">
   <figcaption>Example: </figcaption>

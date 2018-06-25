@@ -102,15 +102,15 @@ document.getElementById('ex2_password').addEventListener('keyup',
 
 <figure class="code ">
   <figcaption>Code snippet: HTML</figcaption>
-<pre class="highlight html"><code><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"password"</span><span class="nt">&gt;</span>Password:<span class="nt">&lt;/label&gt;</span>
+<div class="highlight"><pre class="highlight html"><code><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"password"</span><span class="nt">&gt;</span>Password:<span class="nt">&lt;/label&gt;</span>
 <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"password"</span> <span class="na">id=</span><span class="s">"password"</span><span class="nt">&gt;</span>
 <span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"passwordmeter"</span><span class="nt">&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;</span>
 <span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"passwordmessage"</span> <span class="na">aria-live=</span><span class="s">"polite"</span><span class="nt">&gt;&lt;/span&gt;</span>
-</code></pre>
+</code></pre></div>
 </figure>
 <figure class="code ">
   <figcaption>Code snippet: CSS</figcaption>
-<pre class="highlight css"><code><span class="nf">#passwordmeter</span> <span class="p">{</span>
+<div class="highlight"><pre class="highlight css"><code><span class="nf">#passwordmeter</span> <span class="p">{</span>
 	<span class="nl">display</span><span class="p">:</span><span class="n">inline-block</span><span class="p">;</span>
 	<span class="nl">width</span><span class="p">:</span><span class="m">125px</span><span class="p">;</span>
 	<span class="nl">height</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span>
@@ -124,11 +124,11 @@ document.getElementById('ex2_password').addEventListener('keyup',
 	<span class="nl">width</span><span class="p">:</span><span class="m">25px</span><span class="p">;</span>
 	<span class="nl">height</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
+</code></pre></div>
 </figure>
 <figure class="code ">
   <figcaption>Code snippet: JavaScript</figcaption>
-<pre class="highlight javascript"><code><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'password'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'keyup'</span><span class="p">,</span>
+<div class="highlight"><pre class="highlight javascript"><code><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'password'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'keyup'</span><span class="p">,</span>
 		<span class="kd">function</span><span class="p">(){</span>
 			<span class="c1">// (1) Select the password meter and message elements.</span>
 			<span class="kd">var</span> <span class="nx">meter</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#passwordmeter span'</span><span class="p">);</span>
@@ -167,7 +167,7 @@ document.getElementById('ex2_password').addEventListener('keyup',
 				<span class="nx">msg</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s1">' '</span><span class="p">;</span>
 			<span class="p">}</span>
 	<span class="p">});</span>
-</code></pre>
+</code></pre></div>
 </figure>
   </div>
 </div>

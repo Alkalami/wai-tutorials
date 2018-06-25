@@ -109,8 +109,8 @@
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><code><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"expire"</span><span class="nt">&gt;</span>Expiration date (MM/YYYY): <span class="nt">&lt;/label&gt;</span> <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"expire"</span> <span class="na">id=</span><span class="s">"expire"</span><span class="nt">&gt;</span>
-</code></pre>
+<div class="highlight"><pre class="highlight html"><code><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"expire"</span><span class="nt">&gt;</span>Expiration date (MM/YYYY): <span class="nt">&lt;/label&gt;</span> <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"expire"</span> <span class="na">id=</span><span class="s">"expire"</span><span class="nt">&gt;</span>
+</code></pre></div>
 </figure>
 <h3 class="newex" id="providing-instructions-outside-labels">Providing instructions outside labels</h3>
 
@@ -148,12 +148,12 @@
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><code><span class="nt">&lt;label</span> <span class="na">id=</span><span class="s">"expLabel"</span> <span class="na">for=</span><span class="s">"expire"</span> <span class="na">tabindex=</span><span class="s">"-1"</span><span class="nt">&gt;</span>Expiration date:<span class="nt">&lt;/label&gt;</span>
+<div class="highlight"><pre class="highlight html"><code><span class="nt">&lt;label</span> <span class="na">id=</span><span class="s">"expLabel"</span> <span class="na">for=</span><span class="s">"expire"</span> <span class="na">tabindex=</span><span class="s">"-1"</span><span class="nt">&gt;</span>Expiration date:<span class="nt">&lt;/label&gt;</span>
 <span class="nt">&lt;span&gt;</span>
 	<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"expire"</span> <span class="na">id=</span><span class="s">"expire"</span> <span class="na">aria-labelledby=</span><span class="s">"expLabel expDesc"</span><span class="nt">&gt;</span>
 	<span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"expDesc"</span> <span class="na">tabindex=</span><span class="s">"-1"</span><span class="nt">&gt;</span>MM/YYYY<span class="nt">&lt;/span&gt;</span>
 <span class="nt">&lt;/span&gt;</span>
-</code></pre>
+</code></pre></div>
 </figure>
 <div class="notes ">
 <p><strong>Note:</strong> At the time of writing those tutorials, it is necessary to add <code>tabindex="-1"</code> to elements that are referenced by <code>aria-labelledby</code> or <code>aria-describedby</code> if those attributes point to <em>two or more</em> elements to make this technique work in Internet Explorer.</p>
@@ -165,12 +165,12 @@
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><code><span class="nt">&lt;label</span> <span class="na">id=</span><span class="s">"expLabel"</span> <span class="na">for=</span><span class="s">"expire"</span><span class="nt">&gt;</span>Expiration date:<span class="nt">&lt;/label&gt;</span>
+<div class="highlight"><pre class="highlight html"><code><span class="nt">&lt;label</span> <span class="na">id=</span><span class="s">"expLabel"</span> <span class="na">for=</span><span class="s">"expire"</span><span class="nt">&gt;</span>Expiration date:<span class="nt">&lt;/label&gt;</span>
 <span class="nt">&lt;span&gt;</span>
 	<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"expire"</span> <span class="na">id=</span><span class="s">"expire"</span> <span class="na">aria-labelledby=</span><span class="s">"expLabel"</span> <span class="na">aria-describedby=</span><span class="s">"expDesc"</span><span class="nt">&gt;</span>
 	<span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"expDesc"</span><span class="nt">&gt;</span>MM/YYYY<span class="nt">&lt;/span&gt;</span>
 <span class="nt">&lt;/span&gt;</span>
-</code></pre>
+</code></pre></div>
 </figure>
 <h3 class="newex" id="placeholder-text">Placeholder text</h3>
 
@@ -219,13 +219,13 @@
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><code><span class="nt">&lt;div&gt;</span>
+<div class="highlight"><pre class="highlight html"><code><span class="nt">&lt;div&gt;</span>
 	<span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"search"</span><span class="nt">&gt;</span>Search:<span class="nt">&lt;/label&gt;</span> <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"search"</span> <span class="na">id=</span><span class="s">"search"</span> <span class="na">placeholder=</span><span class="s">"e.g. Apple Pie"</span><span class="nt">&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;div&gt;</span>
 	<span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"email"</span><span class="nt">&gt;</span>Email: <span class="nt">&lt;/label&gt;</span> <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"email"</span> <span class="na">id=</span><span class="s">"email"</span> <span class="na">placeholder=</span><span class="s">"joe@example.com"</span><span class="nt">&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
-</code></pre>
+</code></pre></div>
 </figure>
 <h4 id="styling">Styling</h4>
 
@@ -233,7 +233,7 @@
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight css"><code><span class="nd">::-webkit-input-placeholder</span> <span class="p">{</span>
+<div class="highlight"><pre class="highlight css"><code><span class="nd">::-webkit-input-placeholder</span> <span class="p">{</span>
 	 <span class="nl">color</span><span class="p">:</span> <span class="m">#767676</span><span class="p">;</span>
 	 <span class="nl">opacity</span><span class="p">:</span> <span class="m">1</span><span class="p">;</span>
 <span class="p">}</span>
@@ -252,7 +252,7 @@
 	 <span class="nl">color</span><span class="p">:</span> <span class="m">#767676</span><span class="p">;</span>
 	 <span class="nl">opacity</span><span class="p">:</span> <span class="m">1</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
+</code></pre></div>
 </figure>
 
 
