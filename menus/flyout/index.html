@@ -13,7 +13,7 @@
   </title>
   <link rel="canonical" href="https://www.w3.org/WAI/tutorials/menus/flyout/" />
   <meta name="viewport" content="width=device-width">
-  <link href="../../stylesheets/wai-act-1c96b559.css" rel="stylesheet" type="text/css" />
+  <link href="../../stylesheets/wai-act-69453104.css" rel="stylesheet" type="text/css" />
   <script src="../../javascripts/modernizr-a1c597b5.js" type="text/javascript"></script>
   <link rel="mask-icon" href="../../img/w3cwai-maskicon-cf2cdf03.svg" color="#003366">
 </head>
@@ -257,7 +257,7 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 				<li><a href="#flyoutnavkbfixed">Home</a></li>
 				<li><a href="#flyoutnavkbfixed">Shop</a></li>
 				<li class="has-submenu">
-						<a href="#flyoutnavkbfixed">Space Bears</a>
+						<a href="#flyoutnavkbfixed" aria-expanded="false" aria-haspopup="true">Space Bears</a>
 						<ul>
 								<li><a href="#flyoutnavkbfixed">Space Bear 6</a></li>
 								<li><a href="#flyoutnavkbfixed">Space Bear 6 Plus</a></li>
@@ -388,7 +388,9 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 		});
 		el.addEventListener("mouseout", function(event){
 				timer1 = setTimeout(function(event){
-						document.querySelector("#flyoutnavkbfixed .has-submenu.open").className = "has-submenu";
+						var opennav = document.querySelector("#flyoutnavkbfixed .has-submenu.open");
+						opennav.className = "has-submenu";
+						opennav.querySelector('a').setAttribute('aria-expanded', "false");
 				}, 1000);
 		});
 		el.querySelector('a').addEventListener("click",  function(event){
@@ -414,6 +416,7 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 					var opennav = document.querySelector("#flyoutnavkbfixed .has-submenu.open")
 					if (opennav) {
 						opennav.className = "has-submenu";
+						opennav.querySelector('a').setAttribute('aria-expanded', "false");
 					}
 				}, 10);
 			});
@@ -486,18 +489,19 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 	#flyoutnavkbbtn > ul {
 			margin: 0;
 			padding: 0;
-			display: table-row;
+			display:flex;
 			background-color: #036;
 			color: #fff;
 	}
 	#flyoutnavkbbtn > ul > li {
-			display:table-cell;
+			display:flex;
 			width: 20%;
 			text-align: center;
 			position:relative;
 	}
 	#flyoutnavkbbtn a,
 	#flyoutnavkbbtn .current {
+			flex:1;
 			display: block;
 			padding: .25em;
 			border-color: #E8E8E8;
@@ -508,7 +512,7 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
       border: 1px solid #036;
 	}
 	#flyoutnavkbbtn a:hover,
-		#flyoutnavkbbtn a:focus {
+	#flyoutnavkbbtn a:focus {
 			background-color: #fff;
 			color: #036;
 			border: 1px solid #036;
@@ -538,8 +542,6 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 	#flyoutnavkbbtn > ul > li > ul a{
 		border-bottom-width: 1px;
 	}
-
-
 	#flyoutnavkbbtn .has-submenu > a:after {
 		margin-left: 5px;
 		line-height: 14px;
@@ -565,17 +567,21 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 		background: url(../../img/ex-dropdown-inactive-2084a51c.png) center no-repeat;
 	}
 
-	#flyoutnavkbbtn .has-submenu button:hover > span,
+	#flyoutnavkbbtn .has-submenu:hover button > span,
 	#flyoutnavkbbtn .has-submenu button:focus > span {
 		background: url(../../img/ex-dropdown-active-330d8be7.png) #fff;
 	}
 
-	#flyoutnavkbbtn .has-submenu:hover  button,
-	#flyoutnavkbbtn .has-submenu a:focus button {
+	#flyoutnavkbbtn .has-submenu button,
+	#flyoutnavkbbtn .has-submenu a:focus + button {
 		background-color: #036;
 	}
+	#flyoutnavkbbtn .has-submenu:hover button,
+	#flyoutnavkbbtn .has-submenu button:hover,
 	#flyoutnavkbbtn .has-submenu button:focus {
 		background: #FFF;
+		border: 1px solid #036;
+		border-left: none;
 	}
 </style>
 
@@ -630,25 +636,31 @@ var parseHTML = function(str) {
 };
 
 Array.prototype.forEach.call(menuItems1, function(el, i){
-		var btn = '<button><span><span class="visuallyhidden">show submenu</span></span></button>';
-		var activatingA = el.querySelector('a')
-		activatingA.innerHTML = activatingA.innerHTML + ' ' + btn;
+		var activatingA = el.querySelector('a');
+		var btn = '<button><span><span class="visuallyhidden">show submenu for “' + activatingA.text + '”</span></span></button>';
+		activatingA.insertAdjacentHTML('afterend', btn);
 		el.addEventListener("mouseover", function(event){
 				this.className = "has-submenu open";
+				this.querySelector('a').setAttribute('aria-expanded', "true");
+				this.querySelector('button').setAttribute('aria-expanded', "true");
 				clearTimeout(timer1);
 		});
 		el.addEventListener("mouseout", function(event){
 				timer1 = setTimeout(function(event){
 						document.querySelector("#flyoutnavkbbtn .has-submenu.open").className = "has-submenu";
+						document.querySelector('#flyoutnavkbbtn .has-submenu.open a').setAttribute('aria-expanded', "false");
+						document.querySelector('#flyoutnavkbbtn .has-submenu.open button').setAttribute('aria-expanded', "false");
 				}, 1000);
 		});
-		el.querySelector('a button').addEventListener("click",  function(event){
-			if (this.parentNode.parentNode.className == "has-submenu") {
-				this.parentNode.parentNode.className = "has-submenu open";
-				this.parentNode.setAttribute('aria-expanded', "true");
+		el.querySelector('button').addEventListener("click",  function(event){
+			if (this.parentNode.className == "has-submenu") {
+				this.parentNode.className = "has-submenu open";
+				this.parentNode.querySelector('a').setAttribute('aria-expanded', "true");
+				this.parentNode.querySelector('button').setAttribute('aria-expanded', "true");
 			} else {
-				this.parentNode.parentNode.className = "has-submenu";
-				this.parentNode.setAttribute('aria-expanded', "false");
+				this.parentNode.className = "has-submenu";
+				this.parentNode.querySelector('a').setAttribute('aria-expanded', "false");
+				this.parentNode.querySelector('button').setAttribute('aria-expanded', "false");
 			}
 			event.preventDefault();
 		});
@@ -665,6 +677,8 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 					var opennav = document.querySelector("#flyoutnavkbbtn .has-submenu.open")
 					if (opennav) {
 						opennav.className = "has-submenu";
+						opennav.querySelector('a').setAttribute('aria-expanded', "false");
+						opennav.querySelector('button').setAttribute('aria-expanded', "false");
 					}
 				}, 10);
 			});
@@ -685,19 +699,19 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
   <figcaption>Code snippet: JavaScript</figcaption>
 <div class="highlight"><pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">menuItems</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">'li.has-submenu'</span><span class="p">);</span>
 <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">forEach</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">menuItems</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">i</span><span class="p">){</span>
-	<span class="kd">var</span> <span class="nx">btn</span> <span class="o">=</span> <span class="s1">'&lt;button&gt;&lt;span&gt;&lt;span class="visuallyhidden"&gt;show submenu&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;'</span><span class="p">;</span>
-	<span class="kd">var</span> <span class="nx">topLevelLink</span> <span class="o">=</span> <span class="nx">el</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'a'</span><span class="p">);</span>
-	<span class="nx">topLevelLink</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">topLevelLink</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="nx">btn</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">activatingA</span> <span class="o">=</span> <span class="nx">el</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'a'</span><span class="p">);</span>
+	<span class="kd">var</span> <span class="nx">btn</span> <span class="o">=</span> <span class="s1">'&lt;button&gt;&lt;span&gt;&lt;span class="visuallyhidden"&gt;show submenu for “'</span> <span class="o">+</span> <span class="nx">activatingA</span><span class="p">.</span><span class="nx">text</span> <span class="o">+</span> <span class="s1">'”&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;'</span><span class="p">;</span>
+	<span class="nx">activatingA</span><span class="p">.</span><span class="nx">insertAdjacentHTML</span><span class="p">(</span><span class="s1">'afterend'</span><span class="p">,</span> <span class="nx">btn</span><span class="p">);</span>
 
-	<span class="nx">el</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'a button'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"click"</span><span class="p">,</span>  <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
-		<span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">className</span> <span class="o">==</span> <span class="s2">"has-submenu"</span><span class="p">)</span> <span class="p">{</span>
-			<span class="k">this</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">className</span> <span class="o">=</span> <span class="s2">"has-submenu open"</span><span class="p">;</span>
-			<span class="k">this</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'aria-expanded'</span><span class="p">,</span> <span class="s2">"true"</span><span class="p">);</span>
-			<span class="k">this</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.visuallyhidden'</span><span class="p">).</span><span class="nx">innerText</span> <span class="o">=</span> <span class="s1">'hide submenu'</span><span class="p">;</span>
+	<span class="nx">el</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'button'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"click"</span><span class="p">,</span>  <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
+		<span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">className</span> <span class="o">==</span> <span class="s2">"has-submenu"</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">this</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">className</span> <span class="o">=</span> <span class="s2">"has-submenu open"</span><span class="p">;</span>
+			<span class="k">this</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'a'</span><span class="p">).</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'aria-expanded'</span><span class="p">,</span> <span class="s2">"true"</span><span class="p">);</span>
+			<span class="k">this</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'button'</span><span class="p">).</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'aria-expanded'</span><span class="p">,</span> <span class="s2">"true"</span><span class="p">);</span>
 		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-			<span class="k">this</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">className</span> <span class="o">=</span> <span class="s2">"has-submenu"</span><span class="p">;</span>
-			<span class="k">this</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'aria-expanded'</span><span class="p">,</span> <span class="s2">"false"</span><span class="p">);</span>
-			<span class="k">this</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.visuallyhidden'</span><span class="p">).</span><span class="nx">innerText</span> <span class="o">=</span> <span class="s1">'show submenu'</span><span class="p">;</span>
+			<span class="k">this</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">className</span> <span class="o">=</span> <span class="s2">"has-submenu"</span><span class="p">;</span>
+			<span class="k">this</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'a'</span><span class="p">).</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'aria-expanded'</span><span class="p">,</span> <span class="s2">"false"</span><span class="p">);</span>
+			<span class="k">this</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'button'</span><span class="p">).</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'aria-expanded'</span><span class="p">,</span> <span class="s2">"false"</span><span class="p">);</span>
 		<span class="p">}</span>
 		<span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
 	<span class="p">});</span>
@@ -1215,7 +1229,7 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 				
 	      	Updated
 	      
-	      25 June 2018
+	      15 August 2018
 	      
 		      
 		      (first published May 2015)
